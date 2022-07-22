@@ -1,49 +1,49 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function thirdPrompt () {
+function upperPrompt () {
  var upper = prompt("Do you want UPPER CASE letters?", "yes or no");
 
   var smallUpper = upper.toLowerCase;
 
   if (smallUpper !== "yes" || smallUpper !== "no") {
     alert(`please type "yes" or "no"`)
-    thirdPrompt();
+    upperPrompt();
   } else {
-    fourthPrompt();
+    numericPrompt();
   }
 
 
 }
 
-function secondPrompt () {
+function lowerPrompt () {
   var lower = prompt("Do you want lower case letters?", "yes or no" );
 
   var smallLower = lower.toLowerCase;
 
   if (smallLower != "yes" || smallLower != "no") {
     alert(`please type "yes" or "no"`)
-    secondPrompt();
+    lowerPrompt();
   } else {
-    thirdPrompt();
+    upperPrompt();
   }
 }
 
-function firstPrompt () {
+function lengthPrompt () {
   var length = prompt("Please indicate the desired length of your password", "Must be between 8 and 128 characters");
 
   console.log(length);
 
   if (length < 8 || length > 128 || length === NaN) {
     alert("Please choose a password length between 8 and 128 characters");
-    firstPrompt();
+    lengthPrompt();
 
   } else {
-    secondPrompt();
+    lowerPrompt();
   }
 }
 
-generateBtn.addEventListener("click", firstPrompt)
+generateBtn.addEventListener("click", lengthPrompt)
 
 // Write password to the #password input
 function writePassword() {
