@@ -8,10 +8,6 @@ function upperCase() {
 // Write password to the #password input
 function writePassword() {
   prompt("Please choose the length of your password.", "Must be between 8 and 128 characters");
-    // if (chooseLength.length < 8 || chooseLength > 128) {
-    //   alert("Password not correct length");
-    // } else {
-    //   function upperCase();
   }
 
 
