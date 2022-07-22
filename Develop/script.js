@@ -1,6 +1,12 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+function firstPrompt () {
+  prompt("Please indicate the desired length of your password", "Must be between 8 and 128 characters");
+}
+
+generateBtn.addEventListener("click", firstPrompt)
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
