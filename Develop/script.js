@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 function upperPrompt () {
  var upper = prompt("Do you want UPPER CASE letters?", "yes or no");
 
-  var smallUpper = upper.toLowerCase;
+  var smallUpper = upper.toLowerCase();
 
   if (smallUpper !== "yes" || smallUpper !== "no") {
     alert(`please type "yes" or "no"`)
@@ -12,19 +12,21 @@ function upperPrompt () {
   } else {
     numericPrompt();
   }
-// poop
 
 }
 
 function lowerPrompt () {
-  var lower = prompt("Do you want lower case letters?", "yes or no" );
+  var lower = prompt("Do you want lower-case letters?", "yes or no" );
+  
+  if (lower === null) {
+    return;
 
-  var smallLower = lower.toLowerCase;
-
-  if (smallLower != "yes" || smallLower != "no") {
-    alert(`please type "yes" or "no"`)
+  } else if (lower != 'no' && lower != 'yes') {
+    alert(`Please type 'yes' or 'no'`);
     lowerPrompt();
+
   } else {
+    console.log(lower);
     upperPrompt();
   }
 }
@@ -32,16 +34,24 @@ function lowerPrompt () {
 function lengthPrompt () {
   var length = prompt("Please indicate the desired length of your password", "Must be between 8 and 128 characters");
 
-  console.log(length);
+  if (length === null) {
+    return;
 
-  if (length < 8 || length > 128 || length === NaN) {
-    alert("Please choose a password length between 8 and 128 characters");
+  } else if (length < 8 || length > 128 || isNaN(length)) {
+    alert("Please choose a number between 8 and 128");
     lengthPrompt();
 
-  } else {
+  }  else {
+    console.log(length);
     lowerPrompt();
   }
 }
+
+
+
+    
+
+
 
 generateBtn.addEventListener("click", lengthPrompt)
 
