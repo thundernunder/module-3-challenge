@@ -5,6 +5,8 @@ var upper;
 var numeric;
 var special;
 
+console.log(document.documentElement)
+
 var generateBtn = document.querySelector("#generate");
 
 generateBtn.addEventListener("click", generatePassword);
@@ -27,7 +29,7 @@ function generatePassword () {
 
   function lowerPrompt () {
     var lower = prompt("Do you want lower-case letters?", "yes or no" );
-    
+
     if (lower === null) {
       return;
   
@@ -110,9 +112,6 @@ function specialPrompt () {
       writePassword();
     }
   } 
-
-
-
 
 // Write password to the #password input
 function writePassword() {
