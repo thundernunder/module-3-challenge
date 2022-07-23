@@ -5,26 +5,23 @@ var upper;
 var numeric;
 var special;
 
-console.log(document.documentElement)
-
 var generateBtn = document.querySelector("#generate");
 
 generateBtn.addEventListener("click", generatePassword);
 
 function generatePassword () {
-    var length = prompt("Please indicate the desired length of your password", "Must be between 8 and 128 characters");
-  
-    if (length === null) {
-      return;
-  
-    } else if (length < 8 || length > 128 || isNaN(length)) {
-      alert("Please choose a number between 8 and 128");
-      generatePassword();
-  
-    }  else {
-        alert(`Your password will be ${length} characters`);
-        lowerPrompt();
-    }
+  var length = prompt("Please indicate the desired length of your password", "Must be between 8 and 128 characters");
+
+  if (length === null) {
+    return;
+
+  } else if (length < 8 || length > 128 || isNaN(length)) {
+    alert("Please choose a number between 8 and 128");
+    generatePassword();
+
+  }  else {
+      alert(`Your password will be ${length} characters`);
+      lowerPrompt();
   }
 
   function lowerPrompt () {
@@ -91,7 +88,7 @@ function generatePassword () {
     }
   }
 
-function specialPrompt () {
+  function specialPrompt () {
     var special = prompt("Do you want any special characters?", "yes or no" );
     
     if (special === null) {
@@ -109,9 +106,17 @@ function specialPrompt () {
         alert('Your password is not special!');
       }
 
+      for (i=0; i < length; i++) {
+
+      }
+
       writePassword();
     }
   } 
+
+}
+
+  
 
 // Write password to the #password input
 function writePassword() {
