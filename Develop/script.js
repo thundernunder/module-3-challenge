@@ -1,26 +1,47 @@
 // Assignment Code
-var length;
-var lower;
-var upper;
-var numeric;
-var special;
+
+var keys = {
+  lowerAlpha: 'abcdefghijklmnopqrstuvwxyz',
+  upperAlpha: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+  getNumber: '0123456789',
+  getSpecial: '!@#$%^&*_-+='
+}
+
+var getKey = [
+  function lowerAlpha () {
+    return keys.lowerAlpha[Math.floor(Math.random() * keys.lowerAlpha.length)];
+  },
+
+  function upperAlpha () {
+    return keys.upperAlpha[Math.floor(Math.random() * keys.upperrAlpha.length)];
+  },
+
+  function getNumber () {
+    return keys.getNumber[Math.floor(Math.random() * keys.getNumber.length)];
+  },
+
+  function getSpecial () {
+    return keys.getSpecial[Math.floor(Math.random() * keys.getSpecial.length)];
+  },
+]
+
 
 var generateBtn = document.querySelector("#generate");
 
 generateBtn.addEventListener("click", generatePassword);
 
 function generatePassword () {
-  var length = prompt("Please indicate the desired length of your password", "Must be between 8 and 128 characters");
+  var passLength = prompt("Please indicate the desired length of your password", "Must be between 8 and 128 characters");
 
-  if (length === null) {
+  if (passLength === null) {
     return;
 
-  } else if (length < 8 || length > 128 || isNaN(length)) {
+  } else if (passLength < 8 || passLength > 128 || isNaN(passLength)) {
     alert("Please choose a number between 8 and 128");
     generatePassword();
 
   }  else {
-      alert(`Your password will be ${length} characters`);
+      alert(`Your password will be ${passLength} characters`);
       lowerPrompt();
   }
 
@@ -104,19 +125,12 @@ function generatePassword () {
         alert('Your password is special!');
       } else {
         alert('Your password is not special!');
+        writePassword();
       }
 
-      for (i=0; i < length; i++) {
-
-      }
-
-      writePassword();
     }
-  } 
-
+  }
 }
-
-  
 
 // Write password to the #password input
 function writePassword() {
@@ -128,6 +142,16 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
+ // function checkFunction () {
+  //   if (console.log(upper) === 'no' && console.log(lower) === 'no' && console.log(special) === 'no' && console.log(numeric) === 'no') {
+  //     alert("Must select at least one criteria. Try again.");
+  //     generatePassword();
+      
+  //   } else {
+  //     writePassword();
+  //   }
+  // }
 
 // var lowerAlpha = 'abcdefghijklmnopqrstuvwxyz';
 // var upperAlpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
