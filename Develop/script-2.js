@@ -1,26 +1,4 @@
 // Assignment Code
-
-
-
-  var getKey = [
-    function lowerAlpha () {
-      return keys.lowerAlpha[Math.floor(Math.random() * keys.lowerAlpha.length)];
-    },
-  
-    function upperAlpha () {
-      return keys.upperAlpha[Math.floor(Math.random() * keys.upperrAlpha.length)];
-    },
-  
-    function getNumber () {
-      return keys.getNumber[Math.floor(Math.random() * keys.getNumber.length)];
-    },
-  
-    function getSpecial () {
-      return keys.getSpecial[Math.floor(Math.random() * keys.getSpecial.length)];
-    },
-  ]
-  
-  
   var generateBtn = document.querySelector("#generate");
   
   generateBtn.addEventListener("click", generatePassword);
@@ -121,29 +99,25 @@
                             generatePassword();
                             
                           } else {
+                            writePassword();
                             function writePassword() {
   
                               // var password = generatePassword();
 
-                              var password = " ";
+                              var password = "";
                             
                               var passwordText = document.querySelector("#password");
-                            
-                              passwordText.value = password;
 
-                              for (i=0; i <= newPassLength; i++) {
-                                if (lower === 'no') {
-                                  continue;
-                                } else if (upper === 'no') {
-                                  continue;
-                                } else if (numeric === 'no') {
-                                  continue;
-                                } else if (special === 'no') {
-                                  continue;
-                                } else {
-                                  var password += lowerAlpha.charAt(Math.floor(Math.random() * newPassLength));
+                              passwordText.value = password;
+                            
+                              for (i=0; i < newPassLength; i++) {
+                                
+                                  password = getLowerCase(Math.floor(Math.random() * newPassLength));
+
+                                  return password;
+            
                                 }
-                                return password;
+                                
                               }
                             
                             }
@@ -159,19 +133,12 @@
           }
         }
       }     
-  }
   
-  // var keys = {
-  //   lowerAlpha: 'abcdefghijklmnopqrstuvwxyz',
-  //   upperAlpha: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-  //   getNumber: '0123456789',
-  //   getSpecial: '!@#$%^&*_-+='
-  // }
   
-  var lowerAlpha = 'abcdefghijklmnopqrstuvwxyz';
-  var upperAlpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  var numbers = '0123456789';
-  var symbols = '!@#$%^&*_-+=';
+  var getNumber = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  var getUpperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  var getLowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  var getSpecial = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
 
   // Write password to the #password input
   
