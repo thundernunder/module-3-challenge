@@ -1,12 +1,7 @@
 // Assignment Code
 
-var keys = {
-    lowerAlpha: 'abcdefghijklmnopqrstuvwxyz',
-    upperAlpha: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-    getNumber: '0123456789',
-    getSpecial: '!@#$%^&*_-+='
-  }
-  
+
+
   var getKey = [
     function lowerAlpha () {
       return keys.lowerAlpha[Math.floor(Math.random() * keys.lowerAlpha.length)];
@@ -41,6 +36,8 @@ var keys = {
       generatePassword();
   
     }  else {
+        var newPassLength = parseFloat(passLength);
+        console.log(typeof(newPassLength));
         alert(`Your password will be ${passLength} characters`);
         lowerPrompt();
     }
@@ -124,7 +121,32 @@ var keys = {
                             generatePassword();
                             
                           } else {
-                            writePassword();
+                            function writePassword() {
+  
+                              // var password = generatePassword();
+
+                              var password = " ";
+                            
+                              var passwordText = document.querySelector("#password");
+                            
+                              passwordText.value = password;
+
+                              for (i=0; i <= newPassLength; i++) {
+                                if (lower === 'no') {
+                                  continue;
+                                } else if (upper === 'no') {
+                                  continue;
+                                } else if (numeric === 'no') {
+                                  continue;
+                                } else if (special === 'no') {
+                                  continue;
+                                } else {
+                                  var password += lowerAlpha.charAt(Math.floor(Math.random() * newPassLength));
+                                }
+                                return password;
+                              }
+                            
+                            }
                           }
                         }
                       }
@@ -136,33 +158,22 @@ var keys = {
             }
           }
         }
-      }
-  
-        
-  
-          
-  
-            
-            
+      }     
   }
   
+  // var keys = {
+  //   lowerAlpha: 'abcdefghijklmnopqrstuvwxyz',
+  //   upperAlpha: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+  //   getNumber: '0123456789',
+  //   getSpecial: '!@#$%^&*_-+='
+  // }
+  
+  var lowerAlpha = 'abcdefghijklmnopqrstuvwxyz';
+  var upperAlpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var numbers = '0123456789';
+  var symbols = '!@#$%^&*_-+=';
+
   // Write password to the #password input
-  function writePassword() {
-  
-    var password = generatePassword();
-  
-    var passwordText = document.querySelector("#password");
-  
-    passwordText.value = password;
-  
-  }
-  
-  
-  
-  // var lowerAlpha = 'abcdefghijklmnopqrstuvwxyz';
-  // var upperAlpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  // var numbers = '0123456789';
-  // var symbols = '!@#$%^&*_-+=';
   
   // function showPrompts() {
   //     lowerCase = confirm("Do you want to use lower case letters?");
