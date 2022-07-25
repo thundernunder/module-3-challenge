@@ -62,7 +62,7 @@ function writePassword() {
     } 
 
     if (lowerCase === false && upperCase === false && wantNumber === false && wantSpecial === false) {
-      alert("nah dog. pick one");
+      alert("Must choose at least one criteria for password");
       generatePassword();
 
   } else {
