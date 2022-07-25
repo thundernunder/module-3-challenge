@@ -40,7 +40,10 @@ function writePassword() {
 
     var passLength = prompt("How many characters do you want your password to be?", "must be between 8 and 128 characters");
 
-    if (passLength < 8 || passLength > 128 || isNaN(passLength)) {
+    if (passLength === null) {
+      return;
+      
+    } else if (passLength < 8 || passLength > 128 || isNaN(passLength)) {
         alert("Please choose a number between 8 and 128");
         generatePassword();
 
