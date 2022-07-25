@@ -18,8 +18,13 @@ generateBtn.addEventListener("click", writePassword);
 
 // Write password to the #password input
 function writePassword() {
-
   var password = generatePassword() 
+  // need to build this function to call back
+
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+}
 
   function generatePassword() {
 
@@ -49,17 +54,48 @@ function writePassword() {
       var wantSpecial = confirm ("Do you want special characters?")
        
     } 
+
     if (lowerCase === false && upperCase === false && wantNumber === false && wantSpecial === false) {
       alert("nah dog. pick one");
       generatePassword();
+
+  } else {
+    while (passwordKeys.totalPasswordLength < passLength) {
+      if (lowerCase === true && passwordKeys.totalPasswordLength < passLength) {
+        var finalLowerCase = passwordKeys.listLowerAlpha[Math.floor(Math.random() * 10)];
+        passReturn = passReturn + finalLowerCase;
+        passwordKeys.totalPasswordLength++
+      }
+
+      if (upperCase === true && passwordKeys.totalPasswordLength < passLength) {
+        var finalUpperCase = passwordKeys.listUpperAlpha[Math.floor(Math.random() * 10)];
+        passReturn = passReturn + finalUpperCase;
+        passwordKeys.totalPasswordLength++
+      }
+
+      if (wantNumber === true && passwordKeys.totalPasswordLength < passLength) {
+        var finalWantNumber = passwordKeys.listNumericCharacters[Math.floor(Math.random() * 10)];
+        passReturn = passReturn + finalWantNumber;
+        passwordKeys.totalPasswordLength++
+      }
+
+      if (wantSpecial === true && passwordKeys.totalPasswordLength < passLength) {
+        var finalWantSpecial = passwordKeys.listSpecialCharacters[Math.floor(Math.random() * 10)];
+        passReturn = passReturn + finalWantSpecial;
+        passwordKeys.totalPasswordLength++
+      }
+  
+    }
   }
-  };
+  // return value to var password = generatePassword()
+  return passReturn;
+  }
+  
 
-  var passwordText = document.querySelector("#password");
+  
 
-  passwordText.value = password;
 
-}
+
 
 
 
