@@ -11,6 +11,7 @@ var passwordKeys = {
   listSpecialCharacters: ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'],
 
   totalPasswordLength: 0,
+  // initial password length of 0. totalPasswordLength increases as user choice criteria is built
 }
 
 // Add event listener to generate button
@@ -27,6 +28,7 @@ function writePassword() {
 }
 
   function generatePassword() {
+    // preset variables to calculate for final password
 
     var passLength;
     var lowerCase;
@@ -37,12 +39,13 @@ function writePassword() {
     var passReturn = "";
     passLength = 0
     passwordKeys.totalPasswordLength = 0;
+    // from passwordKeys object
 
     var passLength = prompt("How many characters do you want your password to be?", "must be between 8 and 128 characters");
 
     if (passLength === null) {
       return;
-      
+
     } else if (passLength < 8 || passLength > 128 || isNaN(passLength)) {
         alert("Please choose a number between 8 and 128");
         generatePassword();
@@ -63,6 +66,7 @@ function writePassword() {
       generatePassword();
 
   } else {
+    // "while total password length is less than user desired length, do these things....
     while (passwordKeys.totalPasswordLength < passLength) {
       if (lowerCase === true && passwordKeys.totalPasswordLength < passLength) {
         var finalLowerCase = passwordKeys.listLowerAlpha[Math.floor(Math.random() * 10)];
@@ -90,7 +94,7 @@ function writePassword() {
   
     }
   }
-  // return value to var password = generatePassword()
+  // return value to var password = generatePassword(). Return values makes it possible to call result of a function outside of its scope
   return passReturn;
   }
   
