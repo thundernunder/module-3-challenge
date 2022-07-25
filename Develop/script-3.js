@@ -13,14 +13,27 @@ function writePassword() {
     } else {
         showPrompts();
     }
-
-
-
   };
+
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
+}
+
+function showPrompts() {
+    var lowerCase = confirm("Do you want lower-case characters?");
+
+    var upperCase = confirm("Do you want UPPER CASE letters?");
+
+    var wantNumber = confirm("Do you want numbers?");
+
+    var wantSpecial = confirm ("Do you want special characters?");
+
+    if (lowerCase === false && upperCase === false && wantNumber === false && wantSpecial === false) {
+        alert("nah dog. pick one");
+        showPrompts();
+    }
 }
 
 // Add event listener to generate button
